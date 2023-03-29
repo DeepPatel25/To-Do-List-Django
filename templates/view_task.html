@@ -1,0 +1,28 @@
+{% extends 'home.html' %} {% block content %}
+<div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th style="width: 10%">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in task %}
+      <tr>
+        <th>{{ forloop.counter }}</th>
+        <td>{{ i.taskTitle }}</td>
+        <td>{{ i.taskDesc }}</td>
+        <td>
+          <a href="{% url 'delete_task' i.id %}" class="btn btn-outline-dark"
+            >Delete</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
